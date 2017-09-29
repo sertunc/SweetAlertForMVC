@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<div class="jumbotron">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "submitForm", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        <input id="mesaj" name="mesaj" type="text" />
+        <input id="Submit1" type="submit" value="submit" />
+    }
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        @Html.Raw(ViewBag.SweetAlertShowMessage)
+    </script>
+}
